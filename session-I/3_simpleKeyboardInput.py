@@ -10,9 +10,9 @@ win = visual.Window(size=[1400, 800],units="height")
 kb=Keyboard()
 
 #resetting clock to get reaction time
-kb.clock.reset()
+#kb.clock.reset()
 
-msg = visual.TextBox2(win, text="Please press any key", letterHeight=0.08, color='black', pos=(0, 0.2)) 
+msg = visual.TextBox2(win, text="Please press any key", alignment='center',letterHeight=0.08, color='black', pos=(0, 0.2)) 
 msg.draw()
 win.flip()
 
@@ -20,7 +20,16 @@ win.flip()
 key=kb.waitKeys(maxWait=10.0)
 keyName=key[0].value
 
-msg.setText("You pressed the "+keyName+" key")
+if(keyName=="left"):
+    msg.setText("Correct!")
+    response="correct"
+elif(keyName=="right"):
+    msg.setText("Incorrect")
+    response="incorrect"
+else:
+    msg.setText("Invalid")
+    response="invalid"
+#msg.setText("The key you pressed is: "+keyName)
 msg.draw()
 win.flip()
 core.wait(3)
