@@ -19,6 +19,9 @@ win.flip()
 # Will wait for a maximum of 10s
 key=kb.waitKeys(maxWait=10.0)
 keyName=key[0].value
+#NOTE: please change the above to key[0].name if you have the older version of pyschopy 
+
+
 
 if(keyName=="left"):
     msg.setText("Correct!")
